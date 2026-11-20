@@ -32,13 +32,8 @@ export const defaultHandler: ExportedHandler<Env> = {
         throw error;
       }
     }
-    if (url.pathname === '/') {
-      return page(
-        'Garmin MCP',
-        `<p>This is a private MCP server for one person's Garmin data.</p><p>Add <code>${escape(url.origin)}/mcp</code> as a custom connector in Claude.</p>`
-      );
-    }
-    return new Response('Not found', { status: 404 });
+    // Everything else, including the home page, returns an empty 404 so the site reveals nothing.
+    return new Response(null, { status: 404, headers: { 'X-Robots-Tag': 'noindex, nofollow' } });
   },
 };
 
