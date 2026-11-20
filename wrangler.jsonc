@@ -8,9 +8,13 @@
   "compatibility_flags": ["global_fetch_strictly_public"],
   // No id needed: wrangler (4.45+) and the Deploy to Cloudflare button create the namespace on first deploy.
   "kv_namespaces": [{ "binding": "OAUTH_KV","id": "cc902dc99cb945f6b299a236ad1fe6ee" }],
+  // Serve only on the custom domain; turn off the *.workers.dev address.
+  "workers_dev": false,
+  "preview_urls": false,
   "vars": {
     // IANA time zone used for "today" and default date ranges, e.g. "Europe/London".
-    "TIMEZONE": "UTC"
+    "TIMEZONE": "Africa/Windhoek",
+    "PUBLIC_URL": "https://garmin-claude.aetorius.com"
   },
   "observability": { "enabled": true }
   // Secrets (never put them here): GARMIN_API_KEY, LOGIN_PASSWORD. See README.
